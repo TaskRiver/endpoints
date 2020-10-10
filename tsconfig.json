@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "ES2019",
+    "module": "commonjs",
+    "lib": ["es2015", "es2016", "ES2017"],
+    "sourceMap": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "removeComments": true,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "moduleResolution": "node",
+    "noEmitOnError": true,
+    "baseUrl": ".",
+    "outDir": "dist"
+  },
+  "include": ["src", "bin"],
+  "exclude": ["node_modules", "dist"]
+}
