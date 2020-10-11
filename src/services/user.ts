@@ -1,5 +1,5 @@
 import { Context } from "koa";
-import { User } from "src/models/User";
+import { User } from "../models/User";
 import UserStore from "..//stores/User";
 
 type KeyPair = { [key: string]: string };
