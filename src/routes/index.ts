@@ -13,7 +13,7 @@ const template = new TaskTemplateService();
 router.get("", ctx => (ctx.body = "Aye boiz, we are live and healthy 😁"));
 
 // User router
-router.post("/users", user.create).get("/users", user.read);
+router.post("/users", user.create).get("/users/:id", user.read);
 
 // Task router
 router.post("/tasks", task.create).get("/tasks", task.read);
