@@ -18,13 +18,15 @@ router.get("", ctx => (ctx.body = "Aye boiz, we are live and healthy 😁"));
 router.post("/users", user.create).get("/users/:id", user.read);
 
 // Task router
-router.post("/tasks", task.create).get("/tasks/:id", task.read).get("/tasks", task.readByUser);
+router
+  .post("/tasks", task.create)
+  .get("/tasks/:id", task.read)
+  .get("/tasks", task.readByUser)
+  .get("/tasks/:id/notes/", note.readByTask);
 
 // Note router
-router
-  .post("/notes", note.create)
-  // .get("/notes/:id", note.read)
-  .get("/tasks/:id/notes/", note.readByTask);
+router.post("/notes", note.create);
+// .get("/notes/:id", note.read)
 
 // Task Templates router
 router.post("/task-templates", template.create).get("/task-templates", template.read);
