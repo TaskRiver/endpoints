@@ -2,12 +2,14 @@ import Router, { Middleware } from "@koa/router";
 import UserService from "../services/user";
 import TaskService from "../services/task";
 import TaskTemplateService from "../services/task-template";
+import NoteService from "../services/note";
 
 const router = new Router();
 
 const user = new UserService();
 const task = new TaskService();
 const template = new TaskTemplateService();
+const note = new NoteService();
 
 // root/health
 router.get("", ctx => (ctx.body = "Aye boiz, we are live and healthy 😁"));
@@ -16,7 +18,13 @@ router.get("", ctx => (ctx.body = "Aye boiz, we are live and healthy 😁"));
 router.post("/users", user.create).get("/users/:id", user.read);
 
 // Task router
-router.post("/tasks", task.create).get("/tasks", task.read);
+router.post("/tasks", task.create).get("/tasks/:id", task.read).get("/tasks", task.readByUser);
+
+// Note router
+router
+  .post("/notes", note.create)
+  // .get("/notes/:id", note.read)
+  .get("/tasks/:id/notes/", note.readByTask);
 
 // Task Templates router
 router.post("/task-templates", template.create).get("/task-templates", template.read);

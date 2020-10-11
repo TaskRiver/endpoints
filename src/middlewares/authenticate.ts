@@ -10,10 +10,10 @@ export default function authenticate(): Middleware<Context> {
   return async (ctx: Context, next: Next) => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const { authorization: token } = ctx.request.header;
-    ctx.assert(token, 204, "Missing auth token.");
+    ctx.assert(token, 401, "Missing auth token.");
 
     const firebaseUser = await admin.auth().verifyIdToken(token);
-    ctx.assert(token, 204, "Invalid auth token.");
+    ctx.assert(token, 401, "Invalid auth token.");
 
     const {
       uid: id,
