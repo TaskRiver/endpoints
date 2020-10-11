@@ -22,7 +22,7 @@ router
   .post("/tasks", task.create)
   .get("/tasks/:id", task.read)
   .get("/tasks", task.readByUser)
-  .get("/tasks/:id/notes/", note.readByTask);
+  .get("/tasks/:id/notes", note.readByTask);
 
 // Note router
 router.post("/notes", note.create);
