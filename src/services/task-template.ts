@@ -1,12 +1,12 @@
 import { Context } from "koa";
 
 export default class TaskTemplate {
-  create = (ctx: Context) => {
+  create = (ctx: Context): void => {
     console.log("hello");
     ctx.body = "working.";
   };
 
-  read = (ctx: Context) => {
+  read = (ctx: Context): void => {
     console.log("hello");
     ctx.body = "working.";
   };

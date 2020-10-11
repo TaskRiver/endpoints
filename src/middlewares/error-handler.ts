@@ -10,10 +10,13 @@ export default function errorHandler(): Middleware<Context> {
     try {
       await next();
     } catch (error) {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       ctx.status = (error.status as number) || 500;
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+      const message = (error.message || "Something went wrong.") as string;
       ctx.body = {
         error: true,
-        message: error?.message || "Something went wrong."
+        message
       };
       ctx.app.emit("error", error, ctx);
     }

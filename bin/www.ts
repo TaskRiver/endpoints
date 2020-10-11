@@ -1,4 +1,4 @@
-require("dotenv").config();
+import "../src/env";
 import app from "../src/app";
 import createMongo from "../src/connections/mongodb";
 

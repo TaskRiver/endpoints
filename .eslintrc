@@ -18,15 +18,5 @@
     "prettier",
     "prettier/@typescript-eslint",
     "prettier/standard"
-  ],
-  "settings": {
-    "import/resolver": {
-      "typescript": {
-        "directory": ["./tsconfig.json"]
-      }
-    }
-  },
-  "rules": {
-    "import/no-unresolved": "error"
-  }
+  ]
 }
