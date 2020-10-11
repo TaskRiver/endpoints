@@ -15,7 +15,8 @@
     "moduleResolution": "node",
     "noEmitOnError": true,
     "baseUrl": ".",
-    "outDir": "dist"
+    "outDir": "dist",
+    "paths": { "src": ["./src"] }
   },
   "include": ["src", "bin"],
   "exclude": ["node_modules", "dist"]
