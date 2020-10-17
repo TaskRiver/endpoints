@@ -15,7 +15,7 @@ export default class TaskStore {
 
   update = async ({ id, ...rest }: any): Promise<NoteDocument | null> => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    return NoteModel.update({ _id: id }, { _id: id, ...rest });
+    return NoteModel.update({ _id: id }, { ...rest });
   };
 
   readByTask = async (taskId: string): Promise<NoteDocument[] | null> => {

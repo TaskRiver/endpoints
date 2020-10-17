@@ -22,10 +22,11 @@ router
   .post("/tasks", task.create)
   .get("/tasks/:id", task.read)
   .get("/tasks", task.readByUser)
+  .put("/tasks/:id", task.update)
   .get("/tasks/:id/notes", note.readByTask);
 
 // Note router
-router.post("/notes", note.create);
+router.post("/notes", note.create).put("/notes/:id", note.update);
 // .get("/notes/:id", note.read)
 
 // Task Templates router

@@ -40,4 +40,11 @@ export default class TaskService {
 
     ctx.body = await this.taskStore.readByUser(userId);
   };
+
+  update = async (ctx: Context): Promise<void> => {
+    const { id } = ctx.params as KeyPair;
+    const data = ctx.request.body;
+
+    ctx.body = await this.taskStore.update({ id, ...data });
+  };
 }

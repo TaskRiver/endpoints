@@ -9,8 +9,8 @@ export default class NoteService {
     this.noteStore = new NoteStore();
   }
   create = async (ctx: Context): Promise<void> => {
-    const { id: taskId } = ctx.params as KeyPair;
-    const { title = "", content = "", markdown = false } = ctx.request.body as KeyPair;
+    const { id } = ctx.params as KeyPair;
+    const { title = "", content = "", markdown = false, taskId } = ctx.request.body as KeyPair;
 
     const task = (await this.noteStore.create({
       title,

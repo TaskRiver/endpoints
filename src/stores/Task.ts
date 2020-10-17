@@ -16,4 +16,8 @@ export default class TaskStore {
   readByUser = async (userId: string): Promise<TaskDocument[] | null> => {
     return TaskModel.find({ userId }).exec();
   };
+
+  update = async ({ id, ...rest }: any): Promise<TaskDocument | null> => {
+    return TaskModel.update({ _id: id }, { ...rest });
+  };
 }
